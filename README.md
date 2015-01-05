@@ -1,12 +1,12 @@
-# Firebase in 10 minutes
+# Firebase in 30 minutes
 
-Firebase makes building realtime stuff easy. Jenny is going to show you how in about 30 minutes with slides, demos, and 
+Firebase makes building realtime stuff easy. Kat is going to show you how in about 30 minutes with slides, demos, and 
 little bit of live coding.
 
-Slides live on [mimming.com](https://mimming.com/presos/firebase-in-30-minutes/)
+Slides not yet live.
 
-## Presented at
-- [Hack Duke](http://www.hackduke.com/tech-talks) on 14 Nov 2014 - [release tag](https://github.com/mimming/firebase-in-30-minutes/releases/tag/hackduke14) 
+## Presenting at
+- [MIT 6.470](http://6.470.scripts.mit.edu/2015/) on 09 Jan 2015 - [release tag](https://github.com/katfang/firebase-in-30-minutes/releases/tag/2015-mit6470) 
 
 ## About the deck
 

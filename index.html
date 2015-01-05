@@ -55,10 +55,6 @@
       box-shadow: none;
     }
 
-    .slides section {
-      font-size: 125%;
-    }
-
     .slides section img {
       background: none;
       box-shadow: none;
@@ -67,11 +63,10 @@
 
     ul.multicol {
       width: 1300px;
-
     }
 
     .reveal pre code {
-      font-size: 120%;
+      font-size: 115%;
     }
     ul.multicol li {
       display: inline-block;
@@ -85,7 +80,6 @@
       height: auto;
     }
 
-
     .reveal section img {
       max-height: 65%;
     }
@@ -98,41 +92,20 @@
 <div class="reveal">
 
 <!-- Any section element inside of this container is displayed as a slide -->
-<div class="slides">
+<div class="slides" style="width: 1280px; height: 700px; zoom: 0.940234375;">
 <section class="center">
-  <h1 style="font-size: 2em">Hello Hack Duke hackers!</h1>
-  <br/>
-  <img src="img/hack-duke-badge.svg" style="width: 200px"><br/>
-  <img src="img/firebase-logo.png" style="height: 100px">
-</section>
-
-<section>
-  <img src="img/firebase-logo.png" style="border:none; box-shadow: none; background: none;">
-  <br/> <br/>
-
-  <h3>Makes realtime stuff easy</h3>
+  <p style="font-size: 1.1em">Building Realtime Applications with</p>
+  <img src="img/firebase_logo.png" style="width: 80%">
 </section>
 
 <section>
   <div>
-    <img src="img/jenny.jpg" style="border-radius: 150px; float: left; margin-right: 40px" width="300px">
+    <img src="img/katherine_fang.jpg" style="border-radius: 250px; float: left; margin-right: 40px" width="300px"> 
+    <br />
+    <h3>Kat Fang</h3>
+    Software Engineer
     <br/>
-
-    <h3>Jenny Tong</h3>
-    Developer Advocate
-    <br/>
-    <a href="https://plus.google.com/+JennyMurphy">+JennyMurphy</a><br/><a href="https://twitter.com/baconatedgeek">@BaconatedGeek</a>
-  </div>
-  <br/>
-
-  <div style="text-align: right">
-    <img src="img/mike-headshot.jpg" style="border-radius: 150px; float: right; margin-left: 40px" width="300px">
-    <br/>
-
-    <h3>Mike McDonald</h3>
-    Developer Programs Engineer
-    <br/>
-    <a href="https://twitter.com/asciimike">@asciimike</a>
+    <a href="https://twitter.com/fangedkat">@fangedkat</a>
   </div>
 </section>
 
@@ -142,8 +115,8 @@
     ## Agenda
 
     - What realtime is
-    - Why it's hard
-    - How Firebase makes it easy
+    - Realtime is complex
+    - How Firebase makes it simple 
     - Live coding
     - Real world examples
     - Q&A
@@ -155,7 +128,7 @@
     ## Realtime is
     ### Data best served fresh
 
-    ![Value over time](img/graph.png)
+    ![Value over time](img/black_graph.png)
   </script>
 </section>
 <section>
@@ -171,9 +144,9 @@
   <h3>Collaborative drawing</h3>
 
   <iframe style="background-color: #fff; overflow: hidden;"
-          src="https://wb-mobile-demo.firebaseapp.com/#-JW6at3UJLHnDSE72DxR" width="805" height="485"></iframe>
+          src="https://wb-mobile-demo.firebaseapp.com/#-JevNpZbiNlvMa9FBU-D" width="805" height="485"></iframe>
 
-  <br/><a href="http://tinyurl.com/DukeDraws">http://tinyurl.com/DukeDraws</a>
+  <br/><a href="http://tinyurl.com/mitdraws">http://tinyurl.com/mitdraws</a>
 </section>
 <section>
   <h2>Realtime is</h2>
@@ -182,42 +155,43 @@
   <br/>
 
   <div id="btc-quote" style="margin-left: 375px; margin-right: 375px;"></div>
-
 </section>
 
 
 <section>
-  <h2>Realtime is hard</h2>
+  <h2>Realtime is complex</h2>
 
   <h3>Many problems to solve.</h3>
 
   <br/>
 
   <div class="fragment" style="float: left; width: 300px;">
-    Complex transport<br/>
-    <img src="img/complex-icon.png">
+    Transport<br/>
+    <img src="img/complex-icon.png"
+         style="-webkit-filter: invert(100%) hue-rotate(180deg);">
   </div>
   <div class="fragment" style="float: left; width: 300px;">
-    Unreliable networks<br/>
-    <img src="img/no-network-icon.png">
+    Networks<br/>
+    <img src="img/no-network-icon.png"
+         style="-webkit-filter: invert(100%) hue-rotate(180deg);">
   </div>
   <div class="fragment" style="float: left; width: 300px;">
-    Multi-platform<br/>
-    <img src="img/multi-device-icon.png">
+    Platforms<br/>
+    <img src="img/multi-device-icon.png"
+         style="-webkit-filter: invert(100%) hue-rotate(180deg);">
   </div>
 </section>
 <section>
-  <h2>Realtime data is hard</h2>
+  <h2>Realtime is complex</h2>
 
   <p>It's difficult to scale.</p>
-  <img class="fragment" src="img/backend-reqs.gif"
-       style="-webkit-filter: invert(100%) hue-rotate(180deg);">
+  <img class="fragment" src="img/backend-reqs.gif">
 </section>
 
 <section>
-  <h2>Firebase makes it easy</h2>
+  <h2>Firebase makes it simple</h2>
 
-  <img src="img/firebase-overview2.png">
+  <img src="img/firebase-overview.png">
 </section>
 
 <section>
@@ -226,9 +200,9 @@
   <div class="fragment">
   <h4>Write Data</h4>
 <pre style="margin-bottom:-50px;"><code data-trim>
-var ref = new Firebase("https://duke.firebaseio-demo.com/");
+var ref = new Firebase("https://mit.firebaseio-demo.com/");
 
-ref.set("Hello Duke!");
+ref.set("Hello MIT!");
 </code></pre>
     </div>
   <br/><br/>
@@ -250,28 +224,18 @@ ref.on("value", function (snapshot) {
 </section>
 
 <section>
-  <h3>Goodies to reduce the need for servers</h3>
+  <h3>Other Helpful Goodies</h3>
 
   <br/>
 
-  <div style="float: left; margin: 0 20px;">
-    <img src="img/database.png" style="height: 200px;"/><br/><b>Data</b>
+  <div style="float: left; margin: 0 50px; font-size:.7em; text-align:center;">
+    <img src="img/database.png" style="height: 200px;"/><br/><b>Data</b><br />
+    <img src="img/parking-map.png" style="height: 200px;"/><br/><b>Open Data Sets</b>
   </div>
-  <div style="float: left; margin: 0 20px;">
-    <img src="img/userMan.png" style="height: 200px;"/><br/><b>Authentication</b>
-  </div>
-  <div style="float: left; margin: 0 20px;">
+  <div style="float: right; margin: 0 50px; font-size:.7em; text-align:center;">
+    <img src="img/userMan.png" style="height: 200px;"/><br/><b>Auth & Security</b><br />
     <img src="img/hosting.png" style="height: 200px;"/><br/><b>Hosting</b>
   </div>
-  <div style="clear: both;"></div>
-
-</section>
-
-<section>
-  <h2>Some facts about Firebase</h2>
-  <br/>
-
-  <img src="img/firebase-facts.png"/>
 
 </section>
 
@@ -279,8 +243,8 @@ ref.on("value", function (snapshot) {
   <h2>We <3 developers</h2>
   <br/>
   <img src="img/walterhacks.jpg"
-       style="height: 380px; border: 5px solid #eeeeee; border-radius: 10px; margin: 0 20px 0 0">
-  <img src="img/calhacks.jpg" style="height: 380px; border: 5px solid #eeeeee; border-radius: 10px; margin: 0 0 0 20px">
+       style="height: 380px; border: 2px solid #333; border-radius: 10px; margin: 0 20px 0 0">
+  <img src="img/calhacks.jpg" style="height: 380px; border: 2px solid #333; border-radius: 10px; margin: 0 0 0 20px">
 </section>
 
 <section>
@@ -291,36 +255,39 @@ ref.on("value", function (snapshot) {
 
 <section>
   <div class="center">
-    <h2 style="margin-top: 100px;">It works for big projects too!</h2>
+    <h2 style="margin-top: 100px; ">It works for</h2>
+    <h2>BIG projects too!</h2>
   </div>
 </section>
 
-<section>
-  <h2>Citrix - GoToMeeting</h2>
-
-  <p style="margin-top: 40px;">Uses Firebase's realtime signaling, presence, and security rules</p>
-
-  <div style="text-align: center;"><img src="img/gotomeeting.png" style="width: 600px; border-radius: 10px;"/></div>
-</section>
-
-<section>
-  <h2>Citrix - Talkboard</h2>
-
-  <p style="margin-top: 40px; margin-bottom: 30px;">Realtime, collaborative whiteboarding for teams</p>
-
-  <div style="text-align:center;"><img src="img/talkboard.png" style="width:600px; border-radius: 10px;"/></div>
-</section>
 
 <section>
   <h2>CBS</h2>
   <img src="img/cbs-chat.jpg" style="float: right;"/>
-  <ul id="cbs" style="float:left; width:500px; margin-top: 100px;">
+  <ul id="cbs" style="float:left; width:500px;">
     <li>Built a realtime chat platform for reality TV series <i>Big Brother</i></li>
     <br/>
-    <li>50k concurrents at peak times, with over 27m chat message posted</li>
+    <li>50k concurrents at peak times, with over 27M chat message posted</li>
   </ul>
 </section>
 
+<section>
+  <h2>Roll20</h2>
+
+  <p style="margin-top: 40px;">Online virtual tabletop using<br />Firebase as the backend.</p>
+
+  <div style="text-align: center;"><img src="img/roll20.png" style="width: 600px; border-radius: 10px;"/></div>
+</section>
+
+<section>
+  <h2>Reviewable</h2>
+  
+  <p style="margin-top: 40px;">GitHub code reviews backed by Firebase.</p>
+
+  <div style="text-align: center;"><img src="img/reviewable.png" style="width: 800px; border-radius: 10px;"/></div>
+
+  <a href="http://tinyurl.com/ReviewableFiresideChat">http://tinyurl.com/ReviewableFiresideChat</a>
+</section>
 
 <section class="center">
   <h2>More Case Studies</h2>
@@ -340,8 +307,8 @@ ref.on("value", function (snapshot) {
     ## We talked about this stuff
 
     - What realtime is
-    - Why it's hard
-    - How Firebase makes it easy
+    - Realtime is complex 
+    - How Firebase makes it simple 
     - Live coding
     - Real world examples
   </script>
@@ -351,7 +318,7 @@ ref.on("value", function (snapshot) {
 <section>
   <h1>The End</h1>
   <ul>
-    <li>Slides: <a href="https://mimming.com/presos/firebase-in-30-minutes">mimming.com/presos/firebase-in-30-minutes</a>
+    <li>Slides: <a href="https://katfang.com/presos/2015/6470">katfang.com/presos/2015/6470</a>
     </li>
     <li>Try Firebase: <a href="https://www.firebase.com/tutorial">firebase.com/tutorial</a></li>
     <li>Chat Example: <a href="https://github.com/mcdonamp/live-coding">github.com/mcdonamp/live-coding</a></li>
@@ -378,8 +345,8 @@ ref.on("value", function (snapshot) {
     history: true,
     center: true,
 
-    theme: "night", // available themes are in /css/theme
-    transition: Reveal.getQueryHash().transition || 'concave', // default/cube/page/concave/zoom/linear/fade/none
+    theme: "firebase", // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
 
     // Parallax scrolling
     // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
@@ -410,7 +377,7 @@ ref.on("value", function (snapshot) {
 
   // Update to display map on map-canvas when that slide loads
   Reveal.addEventListener('slidechanged', function (event) {
-    if (event.indexh === 5) {
+    if (event.indexh === 4) {
       transitmapstart()
     }
   });

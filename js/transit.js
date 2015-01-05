@@ -88,6 +88,13 @@ function transitmapstart() {
 
 
 var transitSystems = [
+    { lat: 42.360091, // 42.34067,
+        lon: -71.09416, // -71.08711,
+        tag: 'mbta',
+        city: 'Cambridge',
+        state: 'MA',
+        name: 'Massachusetts Bay Transit',
+        zoom: 14 },
     { lat: 35.9132,
         lon: -79.055845,
         tag: 'chapel-hill',
@@ -221,13 +228,6 @@ var transitSystems = [
         state: 'CA',
         name: 'Los Angeles Rail',
         zoom: 11 },
-    { lat: 42.34067,
-        lon: -71.08711,
-        tag: 'mbta',
-        city: 'Cambridge',
-        state: 'MA',
-        name: 'Massachusetts Bay Transit',
-        zoom: 14 },
     { lat: 34.285558,
         lon: -118.882041,
         tag: 'moorpark',

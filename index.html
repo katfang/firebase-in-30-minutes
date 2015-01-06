@@ -39,6 +39,7 @@
   <script src="js/transit.js"></script>
   <script type="text/javascript" src="https://cdn-gh.firebase.com/btcquote/embed.js"></script>
 
+
   <!--[if lt IE 9]>
   <script src="lib/js/html5shiv.js"></script>
   <![endif]-->
@@ -94,7 +95,7 @@
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides" style="width: 1280px; height: 700px; zoom: 0.940234375;">
 <section class="center">
-  <p style="font-size: 1.1em">Building Realtime Applications with</p>
+  <p style="font-size: 1.1em">Enable Multiplayer Mode with</p>
   <img src="img/firebase_logo.png" style="width: 80%">
 </section>
 
@@ -114,8 +115,8 @@
   <script type="text/template">
     ## Agenda
 
-    - What realtime is
-    - Realtime is complex
+    - Multiplayer games
+    - Multiplayer is complex
     - How Firebase makes it simple 
     - Live coding
     - Real world examples
@@ -125,41 +126,25 @@
 
 <section data-markdown>
   <script type="text/template">
-    ## Realtime is
-    ### Data best served fresh
-
-    ![Value over time](img/black_graph.png)
+    ## Multiplayer is
+    
+    Turn-based games!
+    - Words with Friends / Art with friends, etc.
+    - Blackjack
+    - Poker
   </script>
 </section>
 <section>
-  <h2>Realtime is</h2>
+  <h2>Multiplayer is</h2>
 
-  <h3>Where your bus is</h3>
-
-  <div id="map-canvas" style="width: 100%; height: 600px"></div>
-</section>
-<section>
-  <h2>Realtime is</h2>
-
-  <h3>Collaborative drawing</h3>
-
-  <iframe style="background-color: #fff; overflow: hidden;"
-          src="https://wb-mobile-demo.firebaseapp.com/#-JevNpZbiNlvMa9FBU-D" width="805" height="485"></iframe>
-
-  <br/><a href="http://tinyurl.com/mitdraws">http://tinyurl.com/mitdraws</a>
-</section>
-<section>
-  <h2>Realtime is</h2>
-
-  <h3>Cryptocurrency prices</h3>
-  <br/>
-
-  <div id="btc-quote" style="margin-left: 375px; margin-right: 375px;"></div>
+  <h3>Realtime games!</h3>
+  - Spaceteam
+  - Mario Kart
+  - Smash 
 </section>
 
-
 <section>
-  <h2>Realtime is complex</h2>
+  <h2>Multiplayer is complex</h2> !!! REWORK THIS SLIDE
 
   <h3>Many problems to solve.</h3>
 
@@ -182,7 +167,7 @@
   </div>
 </section>
 <section>
-  <h2>Realtime is complex</h2>
+  <h2>Multiplayer is complex</h2>
 
   <p>It's difficult to scale.</p>
   <img class="fragment" src="img/backend-reqs.gif">
@@ -195,24 +180,25 @@
 </section>
 
 <section>
-  <h2>Some JavaScript code</h2>
+  <h2>Some Objective-C code</h2>
   <br/>
   <div class="fragment">
   <h4>Write Data</h4>
 <pre style="margin-bottom:-50px;"><code data-trim>
-var ref = new Firebase("https://mit.firebaseio-demo.com/");
+Firebase *ref = [[Firebase alloc] initWithUrl:
+    @"https://mit.firebaseio-demo.com/"];
 
-ref.set("Hello MIT!");
+[ref setValue:@"Hello MIT!"];
 </code></pre>
     </div>
   <br/><br/>
   <div class="fragment">
     <h4>Read Data</h4>
 <pre><code data-trim>
-ref.on("value", function (snapshot) {
-  var data = snapshot.val();
-  console.log(data);
-});
+[ref observeEventType:FEventTypeValue 
+            withBlock:^(FDataSnapshot *snapshot) {
+    NSLog(@"Hello %@", snapshot.value);
+}];
 </code></pre>
   </div>
 </section>
@@ -224,17 +210,15 @@ ref.on("value", function (snapshot) {
 </section>
 
 <section>
-  <h3>Other Helpful Goodies</h3>
+  <h3>Helpful Goodies</h3>
 
   <br/>
 
-  <div style="float: left; margin: 0 50px; font-size:.7em; text-align:center;">
+  <div style="float: left; margin-left: 200px; font-size:.7em; text-align:center;">
     <img src="img/database.png" style="height: 200px;"/><br/><b>Data</b><br />
-    <img src="img/parking-map.png" style="height: 200px;"/><br/><b>Open Data Sets</b>
   </div>
-  <div style="float: right; margin: 0 50px; font-size:.7em; text-align:center;">
+  <div style="float: right; margin-right: 200px; font-size:.7em; text-align:center;">
     <img src="img/userMan.png" style="height: 200px;"/><br/><b>Auth & Security</b><br />
-    <img src="img/hosting.png" style="height: 200px;"/><br/><b>Hosting</b>
   </div>
 
 </section>

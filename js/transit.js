@@ -3,12 +3,12 @@ var map, buses, ref;
 buses = {};
 ref = new Firebase("https://publicdata-transit.firebaseio.com/");
 
-function newBus(bus, firebaseId) {
+function newBus(bus, firebaseId, color) {
     var busLatLng, tag, marker;
     busLatLng = new google.maps.LatLng(bus.lat, bus.lon);
     tag = bus.routeTag.toString()[0].toUpperCase() + bus.routeTag.toString().slice(1);
     marker = new google.maps.Marker({
-        icon: "http://chart.googleapis.com/chart?chst=d_bubble_icon_text_small&chld=bus|bbT|" + tag + "|7094FF|eee",
+        icon: "http://chart.googleapis.com/chart?chst=d_bubble_icon_text_small&chld=bus|bbT|" + tag + "|" + color + "|eee",
         position: busLatLng,
         map: map
     });
@@ -44,12 +44,15 @@ google.maps.Marker.prototype.animatedMoveTo = function (toLat, toLng) {
 };
 
 function transitmapstart() {
-    var name, mapOptions, f, system;
+  starttransitsystem(1, "A31F34");
+  starttransitsystem(0, "7094FF");
+}
+
+function starttransitsystem(system, color) {
+    var name, mapOptions, f;
 
 
     if (f) f.off();
-
-    system = 0;
 
     name = transitSystems[system].tag;
     mapOptions = {
@@ -64,7 +67,7 @@ function transitmapstart() {
     f = ref.child(name + "/vehicles").limit(200);
     f.once("value", function (s) {
         s.forEach(function (b) {
-            newBus(b.val(), b.name());
+            newBus(b.val(), b.name(), color);
         });
     });
     f.on("child_changed", function (s) {
@@ -95,6 +98,13 @@ var transitSystems = [
         state: 'MA',
         name: 'Massachusetts Bay Transit',
         zoom: 14 },
+    { lat: 42.358867,
+        lon: -71.093825,
+        tag: 'mit',
+        city: 'Cambridge',
+        state: 'MA',
+        name: 'Massachusetts Institute of Technology',
+        zoom: 15 },
     { lat: 35.9132,
         lon: -79.055845,
         tag: 'chapel-hill',
@@ -424,13 +434,6 @@ var transitSystems = [
         city: 'Baltimore',
         state: 'MD',
         name: 'Loyola University Maryland',
-        zoom: 15 },
-    { lat: 42.358867,
-        lon: -71.093825,
-        tag: 'mit',
-        city: 'Cambridge',
-        state: 'MA',
-        name: 'Massachusetts Institute of Technology',
         zoom: 15 },
     { lat: 35.607482,
         lon: -77.366959,

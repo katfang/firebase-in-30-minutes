@@ -16,6 +16,8 @@
 
   <link rel="stylesheet" href="css/reveal.min.css">
   <link rel="stylesheet" href="css/theme/default.css" id="theme">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 
   <!-- For syntax highlighting -->
   <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -84,6 +86,11 @@
     .reveal section img {
       max-height: 65%;
     }
+    
+    .reveal i.fa {
+      font-family: 'FontAwesome';
+      font-style: normal;
+    }
   </style>
 
 </head>
@@ -124,48 +131,34 @@
   </script>
 </section>
 
-<section data-markdown>
-  <script type="text/template">
-    ## Multiplayer is
-    
-    Turn-based games!
-    - Words with Friends / Art with friends, etc.
-    - Blackjack
-    - Poker
-  </script>
-</section>
 <section>
   <h2>Multiplayer is</h2>
 
   <h3>Realtime games!</h3>
-  - Spaceteam
-  - Mario Kart
-  - Smash 
+    <div style="align-items:center; display:flex; justify-content: center; margin-top: 30px"> 
+    <img src="img/spaceteamphone.png"
+       style="height: 300px; margin:10px;"> 
+    <img src="img/minecraftphone.png"
+       style="width: 300px; margin:10px;"> 
+    <img src="img/ingressphone.png"
+       style="height: 300px; margin:10px;">
 </section>
 
-<section>
-  <h2>Multiplayer is complex</h2> !!! REWORK THIS SLIDE
-
-  <h3>Many problems to solve.</h3>
-
-  <br/>
-
-  <div class="fragment" style="float: left; width: 300px;">
-    Transport<br/>
-    <img src="img/complex-icon.png"
-         style="-webkit-filter: invert(100%) hue-rotate(180deg);">
-  </div>
-  <div class="fragment" style="float: left; width: 300px;">
-    Networks<br/>
-    <img src="img/no-network-icon.png"
-         style="-webkit-filter: invert(100%) hue-rotate(180deg);">
-  </div>
-  <div class="fragment" style="float: left; width: 300px;">
-    Platforms<br/>
-    <img src="img/multi-device-icon.png"
-         style="-webkit-filter: invert(100%) hue-rotate(180deg);">
-  </div>
+<section> 
+    <h2>Multiplayer is</h2>
+    <h3>Turn-based games!</h3>
+    
+    <div style="align-items:center; display:flex; justify-content: center; margin-top: 30px"> 
+    <img src="img/scramblewithfriendsphone.png"
+       style="height: 300px; margin: 10px;">
+    <img src="img/carcassonnephone.png"
+       style="width: 300px; margin: 10px;">
+    </div>
+    
+  </script>
 </section>
+
+
 <section>
   <h2>Multiplayer is complex</h2>
 
@@ -204,20 +197,30 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
 </section>
 
 <section>
-  <h3>Works with</h3>
+  <h2>Collaborative drawing!</h2>
 
-  <img src="img/frameworks-transparent.png" style="background: none; box-shadow: none; border: none;">
+  <iframe style="background-color: #fff; overflow: hidden;"
+          src="https://wb-mobile-demo.firebaseapp.com/#-JevNpZbiNlvMa9FBU-D" width="805" height="485"></iframe>
+
+  <br/><a href="http://tinyurl.com/mitdraws">http://tinyurl.com/mitdraws</a>
 </section>
 
 <section>
-  <h3>Helpful Goodies</h3>
+  <h2>MMO Asteroids!</h2>
 
+  <img src="img/mmoasteroids.png" width="700" /> 
+  <br/><a href="https://mmoasteroids.firebaseapp.com">https://mmoasteroids.firebaseapp.com</a>
+</section>
+
+
+<section>
+  <h3>Helpful Goodies</h3>
   <br/>
 
-  <div style="float: left; margin-left: 200px; font-size:.7em; text-align:center;">
-    <img src="img/database.png" style="height: 200px;"/><br/><b>Data</b><br />
+  <div style="float: left; margin: 0px 170px; font-size:.7em; text-align:center;" class>
+    <img src="img/database.png" style="height: 200px;"/><br/><b>Data Sync</b><br />
   </div>
-  <div style="float: right; margin-right: 200px; font-size:.7em; text-align:center;">
+  <div style="float: left; margin: 0px; font-size:.7em; text-align:center;" class>
     <img src="img/userMan.png" style="height: 200px;"/><br/><b>Auth & Security</b><br />
   </div>
 
@@ -246,16 +249,6 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
 
 
 <section>
-  <h2>CBS</h2>
-  <img src="img/cbs-chat.jpg" style="float: right;"/>
-  <ul id="cbs" style="float:left; width:500px;">
-    <li>Built a realtime chat platform for reality TV series <i>Big Brother</i></li>
-    <br/>
-    <li>50k concurrents at peak times, with over 27M chat message posted</li>
-  </ul>
-</section>
-
-<section>
   <h2>Roll20</h2>
 
   <p style="margin-top: 40px;">Online virtual tabletop using<br />Firebase as the backend.</p>
@@ -263,15 +256,6 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
   <div style="text-align: center;"><img src="img/roll20.png" style="width: 600px; border-radius: 10px;"/></div>
 </section>
 
-<section>
-  <h2>Reviewable</h2>
-  
-  <p style="margin-top: 40px;">GitHub code reviews backed by Firebase.</p>
-
-  <div style="text-align: center;"><img src="img/reviewable.png" style="width: 800px; border-radius: 10px;"/></div>
-
-  <a href="http://tinyurl.com/ReviewableFiresideChat">http://tinyurl.com/ReviewableFiresideChat</a>
-</section>
 
 <section class="center">
   <h2>More Case Studies</h2>
@@ -290,8 +274,8 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
   <script type="text/template">
     ## We talked about this stuff
 
-    - What realtime is
-    - Realtime is complex 
+    - Multiplayer games
+    - Multiplayer is complex 
     - How Firebase makes it simple 
     - Live coding
     - Real world examples
@@ -302,10 +286,9 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
 <section>
   <h1>The End</h1>
   <ul>
-    <li>Slides: <a href="https://katfang.com/presos/2015/6470">katfang.com/presos/2015/6470</a>
+    <li>Slides: <a href="https://katfang.com/presos/2015/6470">katfang.com/presos/2015/6670</a>
     </li>
     <li>Try Firebase: <a href="https://www.firebase.com/tutorial">firebase.com/tutorial</a></li>
-    <li>Cloud Chat: <a href="https://github.com/katfang/live-cloud-chat">github.com/katfang/live-cloud-chat</a></li>
   </ul>
   <br/><br/>
   Questions anyone?

@@ -169,7 +169,7 @@
 
 
 <section>
-  <h2>Realtime is complex</h2>
+  <h2>Multiplayer is complex</h2>
 
   <h3>Many problems to solve.</h3>
 
@@ -199,6 +199,15 @@
 </section>
 
 <section>
+  <h2>Collaborative drawing!</h2>
+
+  <iframe style="background-color: #fff; overflow: hidden;"
+          src="https://wb-mobile-demo.firebaseapp.com/#-JevNpZbiNlvMa9FBU-D" width="805" height="485"></iframe>
+
+  <br/><a href="http://tinyurl.com/mitdraws">http://tinyurl.com/mitdraws</a>
+</section>
+
+<section>
   <h2>Some Objective-C code</h2>
   <br/>
   <div class="fragment">
@@ -216,20 +225,12 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
 <pre><code data-trim>
 [ref observeEventType:FEventTypeValue 
             withBlock:^(FDataSnapshot *snapshot) {
-    NSLog(@"Hello %@", snapshot.value);
+    NSLog(@"value: %@", snapshot.value);
 }];
 </code></pre>
   </div>
 </section>
 
-<section>
-  <h2>Collaborative drawing!</h2>
-
-  <iframe style="background-color: #fff; overflow: hidden;"
-          src="https://wb-mobile-demo.firebaseapp.com/#-JevNpZbiNlvMa9FBU-D" width="805" height="485"></iframe>
-
-  <br/><a href="http://tinyurl.com/mitdraws">http://tinyurl.com/mitdraws</a>
-</section>
 
 
 <section>
@@ -294,8 +295,7 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
     ## We talked about this stuff
 
     - Multiplayer games
-    - Multiplayer is complex 
-    - How Firebase makes it simple 
+    - How Firebase helps 
     - Live coding
     - Real world examples
   </script>

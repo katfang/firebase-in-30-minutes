@@ -66,7 +66,7 @@
     }
 
     .reveal pre code {
-      font-size: 115%;
+      font-size: 1.07em;
     }
     ul.multicol li {
       display: inline-block;
@@ -195,16 +195,171 @@
   </script>
 </section>
 
+<section> 
+  <h2>Identifying Humans</h2>
+  <p><img src="img/userMan.png" style="height: 200px;" alt="Authentication"/></p>
+  <p>Authentication</p>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+
+  <img src="img/auth-forge.png" alt="Auth settings in Forge"/>
+</section>
+
+<section data-markdown>
+  <script type="text/template">
+  ## Identifying Humans
+  Authentication
+  
+  - Email & Password
+  - Social
+  - Anonymous
+  - Custom
+  </script>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Email & Password Auth</p>
+  
+  <img src="img/enable-email-auth.png" alt="Enable e-mail auth in Forge"/>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Email & Password Auth</p>
+  
+<pre><code data-trim>
+ref.authWithPassword({ 
+  email    : "bobtony@firebase.com",
+  password : "correcthorsebatterystaple"
+}, function (error, authData) {
+  if (authData) {
+    console.log("Authentication payload:", authData);
+  }
+});
+</code></pre>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Email & Password Auth: Create User</p>
+<pre><code data-trim>
+ref.createUser({ 
+  email    : "bobtony@firebase.com",
+  password : "correcthorsebatterystaple"
+}, function (error, createData) {
+  if (error !== nil) {
+    console.log("Error creating user:", error);
+  } else {
+    console.log("Created user with data:", createData);
+  }
+});
+</code></pre>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Email & Password Auth</p>
+  <ul style="font-size:.7em">
+  <li>createUser</li>
+  <li>authWithPassword</li>
+  <li>changePassword</li>
+  <li>resetPassword</li>
+  <li>changeEmail</li>
+  <li>removeUser</li>
+  </ul>
+</section>
+
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Social Auth</p>
+  
+<pre><code data-trim>
+var ref = new Firebase("https://fc.firebaseio-demo.com/");
+
+ref.authWithOAuthRedirect("github", function (error, authData) {
+  if (authData) {
+    console.log("Authentication payload:", authData);
+  }
+});
+</code></pre>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Social Auth</p>
+  
+  <img src="img/enable-github-auth.png" alt="Enable github auth in Forge"/>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Social Auth</p>
+
+  <img src="img/auth-domains.png" alt="Auth settings in Forge"/>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Social Auth</p>
+
+  <div style="float: left; margin-left: 100px; font-size:.7em; text-align:center;">
+  <b>Providers</b><br/>
+  <ul>
+  <li>Google</li>
+  <li>Github</li>
+  <li>Facebook</li>
+  <li>Twitter</li>
+  </ul>
+  </div>
+
+  <div style="float: right; margin-right: 100px; font-size:.7em; text-align:center;">
+  <b>Methods</b><br/> 
+  <ul>
+  <li>authWithOAuthRedirect</li>
+  <li>authWithOAuthPopup</li>
+  </ul>
+  </div>
+</section>
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Anonymous Auth</p>
+  
+<pre><code data-trim>
+var ref = new Firebase("https://fc.firebaseio-demo.com/");
+
+ref.authAnonymously(function (error, authData) {
+  if (authData) {
+    console.log("Authentication payload:", authData);
+  }
+});
+</code></pre>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Anonymous Auth</p>
+  
+  <img src="img/enable-anonymous-auth.png" alt="Enable anonymous auth in Forge"/>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  General Got'cha 
+
+  <img src="img/auth-session-length.png" alt="Auth settings in Forge"/>
+</section>
 
 
 <section>
   <h2>Zombies Eat Data</h2>
-  <br/>
   <div class="fragment">
-  <h4>Javascript</h4>
+  <h4 style="padding-top:20px;">Javascript</h4>
 <pre><code data-trim>
-var ref = 
-  new Firebase("https://fc.firebaseio-demo.com/");
+var ref = new Firebase("https://fc.firebaseio-demo.com/");
 
 ref.set(null);
 </code></pre>
@@ -217,19 +372,12 @@ ref.setValue(null);
 </code></pre>
   <h4 style="padding-top:10px">Objective-C</h4>
 <pre><code data-trim>
-Firebase *ref = 
-  [[Firebase alloc] 
-   initWithUrl:@"https://fc.firebaseio-demo.com"];
+Firebase *ref = [[Firebase alloc] initWithUrl:
+    @"https://fc.firebaseio-demo.com/"];
 
 [ref setValue:[NSNull null]];
 </code></pre>
     </div>
-</section>
-
-<section>
-  <h3>Works with</h3>
-
-  <img src="img/frameworks-transparent.png" style="background: none; box-shadow: none; border: none;">
 </section>
 
 <section>

@@ -94,8 +94,9 @@
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides" style="width: 1280px; height: 700px; zoom: 0.940234375;">
 <section class="center">
-  <p style="font-size: 1.1em">Building Realtime Applications with</p>
+  <p style="font-size: 1.6em">Securing your</p>
   <img src="img/firebase_logo.png" style="width: 80%">
+  <p style="font-size: .8em">for the Zombie Apocalypse</p>
 </section>
 
 <section>
@@ -115,54 +116,39 @@
   <script type="text/template">
     ## Agenda
 
-    - What realtime is
-    - Realtime is complex
-    - How Firebase makes it simple 
-    - Live coding
-    - Real world examples
+    - The Zombies Are Coming!
+    - Identifying humans: Authentication
+    - Keep zombies out: Security rules
+    - No infection here: Validation
+    - Set everything on fire: Blaze 
     - Q&A
   </script>
 </section>
 
 <section data-markdown>
   <script type="text/template">
-    ## Realtime is
-    ### Data best served fresh
+    ## The Zombies Are Coming!
+    Arming Yourself with Firebase
 
-    ![Value over time](img/black_graph.png)
+    <div id="map-canvas" style="width: 100%; height: 600px"></div>
   </script>
 </section>
+
 <section>
-  <h2>Realtime is</h2>
+  <h2>The Zombies Are Coming!</h2>
 
-  <h3>Where your bus is</h3>
-
-  <div id="map-canvas" style="width: 100%; height: 600px"></div>
-</section>
-<section>
-  <h2>Realtime is</h2>
-
-  <h3>Collaborative drawing</h3>
+  <p>Arming Yourself with Firebase</p>
 
   <iframe style="background-color: #fff; overflow: hidden;"
-          src="https://wb-mobile-demo.firebaseapp.com/#-JevNpZbiNlvMa9FBU-D" width="805" height="485"></iframe>
+          src="https://wb-mobile-demo.firebaseapp.com/#-Jg26l0LEKYjLmx0kaNz" width="805" height="485"></iframe>
 
-  <br/><a href="http://tinyurl.com/mitdraws">http://tinyurl.com/mitdraws</a>
-</section>
-<section>
-  <h2>Realtime is</h2>
-
-  <h3>Cryptocurrency prices</h3>
-  <br/>
-
-  <div id="btc-quote" style="margin-left: 375px; margin-right: 375px;"></div>
+  <br/><a href="http://tinyurl.com/FirebaseCambridge">http://tinyurl.com/FirebaseCambridge</a>
 </section>
 
-
 <section>
-  <h2>Realtime is complex</h2>
+  <h2>The Zombies Are Coming!</h2>
 
-  <h3>Many problems to solve.</h3>
+  <p>Arming Yourself with Firebase</p>
 
   <br/>
 
@@ -182,40 +168,62 @@
          style="-webkit-filter: invert(100%) hue-rotate(180deg);" width="160px">
   </div>
 </section>
-<section>
-  <h2>Realtime is complex</h2>
 
-  <p>It's difficult to scale.</p>
+<section>
+  <h2>The Zombies Are Coming!</h2>
+
+  <p>Arming Yourself with Firebase</p>
   <img class="fragment" src="img/backend-reqs.gif">
 </section>
 
 <section>
-  <h2>Firebase makes it simple</h2>
+  <h2>The Zombies Are Coming!</h2>
+  <p>Arming Yourself with Firebase</p>
 
   <img src="img/firebase-overview.png">
 </section>
 
+
+<section data-markdown>
+  <script type="text/template">
+    ## The Zombies Are Coming!
+    We must prepare!
+  
+    - Users trust you
+    - The issues with {read:true, write:true}
+    - Validation
+  </script>
+</section>
+
+
+
 <section>
-  <h2>Some JavaScript code</h2>
+  <h2>Zombies Eat Data</h2>
   <br/>
   <div class="fragment">
-  <h4>Write Data</h4>
-<pre style="margin-bottom:-50px;"><code data-trim>
-var ref = new Firebase("https://mit.firebaseio-demo.com/");
+  <h4>Javascript</h4>
+<pre><code data-trim>
+var ref = 
+  new Firebase("https://fc.firebaseio-demo.com/");
 
-ref.set("Hello MIT!");
+ref.set(null);
+</code></pre>
+  <h4 style="padding-top:10px">Java</h4>
+<pre><code data-trim>
+Firebase ref = 
+  new Firebase("https://fc.firebaseio-demo.com/");
+
+ref.setValue(null);
+</code></pre>
+  <h4 style="padding-top:10px">Objective-C</h4>
+<pre><code data-trim>
+Firebase *ref = 
+  [[Firebase alloc] 
+   initWithUrl:@"https://fc.firebaseio-demo.com"];
+
+[ref setValue:[NSNull null]];
 </code></pre>
     </div>
-  <br/><br/>
-  <div class="fragment">
-    <h4>Read Data</h4>
-<pre><code data-trim>
-ref.on("value", function (snapshot) {
-  var data = snapshot.val();
-  console.log(data);
-});
-</code></pre>
-  </div>
 </section>
 
 <section>
@@ -378,7 +386,7 @@ ref.on("value", function (snapshot) {
 
   // Update to display map on map-canvas when that slide loads
   Reveal.addEventListener('slidechanged', function (event) {
-    if (event.indexh === 4) {
+    if (event.indexh === 3) {
       transitmapstart()
     }
   });

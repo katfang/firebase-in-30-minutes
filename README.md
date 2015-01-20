@@ -7,6 +7,7 @@ Slides not yet live.
 
 ## Presenting at
 - [MIT 6.470](http://6.470.scripts.mit.edu/2015/) on 09 Jan 2015 - [release tag](https://github.com/katfang/firebase-in-30-minutes/releases/tag/2015-mit6470) 
+- [Firebase Cambridge](http://www.meetup.com/Firebase-Cambridge/) on 19 Jan 2015 - [release tag](https://github.com/katfang/firebase-in-30-minutes/releases/tag/security-v1) - [slides](https://katfang.com/presos/2015/security/)
 
 ## About the deck
 

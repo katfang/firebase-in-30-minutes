@@ -119,11 +119,18 @@
     - The Zombies Are Coming!
     - Identifying humans: Authentication
     - Keep zombies out: Security rules
-    - No infection here: Validation
+    - Staying uninfected: Validation
     - Set everything on fire: Blaze 
     - Q&A
   </script>
 </section>
+
+<section>
+<h2>The Zombies Are Coming!</h2>
+<p><img src="img/zombies.jpg" height="200"/></p>
+<p>Firebase Overview</p>
+</section>
+
 
 <section data-markdown>
   <script type="text/template">
@@ -190,7 +197,7 @@
     We must prepare!
   
     - Users trust you
-    - The issues with {read:true, write:true}
+    - The issues with {".read":true, ".write":true}
     - Validation
   </script>
 </section>
@@ -207,16 +214,16 @@
   <img src="img/auth-forge.png" alt="Auth settings in Forge"/>
 </section>
 
-<section data-markdown>
-  <script type="text/template">
-  ## Identifying Humans
-  Authentication
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Authentication</p>
   
-  - Email & Password
-  - Social
-  - Anonymous
-  - Custom
-  </script>
+  <ul style="font-size:.7em">
+  <li>Email & Password</li>
+  <li>Social</li>
+  <li>Anonymous</li>
+  <li>Custom</li>
+  </ul>
 </section>
 
 <section>
@@ -224,22 +231,6 @@
   <p>Email & Password Auth</p>
   
   <img src="img/enable-email-auth.png" alt="Enable e-mail auth in Forge"/>
-</section>
-
-<section>
-  <h2>Identifying Humans</h2>
-  <p>Email & Password Auth</p>
-  
-<pre><code data-trim>
-ref.authWithPassword({ 
-  email    : "bobtony@firebase.com",
-  password : "correcthorsebatterystaple"
-}, function (error, authData) {
-  if (authData) {
-    console.log("Authentication payload:", authData);
-  }
-});
-</code></pre>
 </section>
 
 <section>
@@ -262,6 +253,22 @@ ref.createUser({
 <section>
   <h2>Identifying Humans</h2>
   <p>Email & Password Auth</p>
+  
+<pre><code data-trim>
+ref.authWithPassword({ 
+  email    : "bobtony@firebase.com",
+  password : "correcthorsebatterystaple"
+}, function (error, authData) {
+  if (authData) {
+    console.log("Authentication payload:", authData);
+  }
+});
+</code></pre>
+</section>
+
+<section>
+  <h2>Identifying Humans</h2>
+  <p>Email & Password Auth</p>
   <ul style="font-size:.7em">
   <li>createUser</li>
   <li>authWithPassword</li>
@@ -271,7 +278,6 @@ ref.createUser({
   <li>removeUser</li>
   </ul>
 </section>
-
 
 <section>
   <h2>Identifying Humans</h2>
@@ -353,10 +359,47 @@ ref.authAnonymously(function (error, authData) {
   <img src="img/auth-session-length.png" alt="Auth settings in Forge"/>
 </section>
 
+<section>
+  <h2>Identifying Humans</h2>
+Get Current User Data
+<pre><code data-trim>
+ref.getAuth()
+</code></pre>
+
+<p>Data Format</p>
+<pre><code data-trim>
+{
+  expires: 1422305884,
+  provider: "facebook",
+  token: "eyJ1aZBlPz..."
+  uid: "facebook:275593389300607"
+  facebook: {
+    accessToken: "DBBE8CU3pqu..."
+    displayName: "Kat Fang",
+    email: "kat@firebase.com",
+    id: "275593389300607"
+    cachedUserProfile: { age, timezone ... }
+  }
+}
+</code></pre>
+
+</section>
+
 
 <section>
-  <h2>Zombies Eat Data</h2>
-  <div class="fragment">
+  <h2>Keep Zombies Out</h2>
+  <p><img src="img/empty-security-rules.png" alt="Security Rules" height="200"/></p>
+  <p>Security Rules</p>
+</section>
+
+<section>
+  <h2>Keep Zombies Out</h2>
+  <p><img src="img/read-true-write-true.png" alt="Read-true Write-true" /></p> 
+</section>
+
+<section>
+  <h2>Keep Zombies Out</h2>
+  Zombies Eat Data
   <h4 style="padding-top:20px;">Javascript</h4>
 <pre><code data-trim>
 var ref = new Firebase("https://fc.firebaseio-demo.com/");
@@ -377,97 +420,296 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
 
 [ref setValue:[NSNull null]];
 </code></pre>
-    </div>
 </section>
 
 <section>
-  <h3>Other Helpful Goodies</h3>
-
-  <br/>
-
-  <div style="float: left; margin: 0 50px; font-size:.7em; text-align:center;">
-    <img src="img/database.png" style="height: 200px;"/><br/><b>Data</b><br />
-    <img src="img/parking-map.png" style="height: 200px;"/><br/><b>Open Data Sets</b>
-  </div>
-  <div style="float: right; margin: 0 50px; font-size:.7em; text-align:center;">
-    <img src="img/userMan.png" style="height: 200px;"/><br/><b>Auth & Security</b><br />
-    <img src="img/hosting.png" style="height: 200px;"/><br/><b>Hosting</b>
-  </div>
-
+  <h2>Keep Zombies Out</h2>
+<pre><code data-trim>
+{
+  "rules": {
+    ".read": false,
+    ".write": false
+  }
+}</code></pre>
 </section>
 
 <section>
-  <h2>We <3 developers</h2>
-  <br/>
-  <img src="img/walterhacks.jpg"
-       style="height: 380px; border: 2px solid #333; border-radius: 10px; margin: 0 20px 0 0">
-  <img src="img/calhacks.jpg" style="height: 380px; border: 2px solid #333; border-radius: 10px; margin: 0 0 0 20px">
+  <h2>Keep Zombies Out</h2>
+<pre><code data-trim>
+{
+  "rules": {
+    ".read": true,
+    ".write": "auth != null"
+  }
+}</code></pre>
 </section>
 
 <section>
-  <div class="center">
-    <h2 style="margin-top: 100px;">Let's write some code!</h2>
-  </div>
+  <h2>Keep Zombies Out</h2>
+<pre><code data-trim>
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": false,
+    "users": {
+      "$uid": {
+        ".write": "$uid == auth.uid"
+      }
+    }
+  }
+}</code></pre>
 </section>
 
 <section>
-  <div class="center">
-    <h2 style="margin-top: 100px; ">It works for</h2>
-    <h2>BIG projects too!</h2>
-  </div>
+  <h2>Keep Zombies Out</h2>
+Secret Party
+<pre><code data-trim>
+{
+  "rules": {
+    ".read": false, 
+    ".write": false,
+    "secretparty": {
+      "messages": {
+        ".read": "auth != null && data.parent().child('allowed').hasChild(auth.uid)",
+        ".write": "auth != null && data.parent().child('allowed').hasChild(auth.uid)"
+      }
+    }
+  }
+}</code></pre>
+That long line:
+<pre><code data-trim style="font-size:1em">
+"auth != null && data.parent().child('allowed').hasChild(auth.uid)"
+</code></pre>
+</section>
+
+<section>
+  <h2>Keep Zombies Out</h2>
+Secret Party
+<pre><code data-trim>
+{
+  "allowed":{
+    "anonymous:-Jg2zEZZUlCenwYtRWyP":true,
+    "anonymous:-Jg3Fj9JwUlTTcPjo36v":true
+  },
+  "messages":{
+    "-Jg3G6bl8BCfYbJqH0mf":"Hello!",
+    "-Jg3GEkHDF85KNnkcQgR":"Hey how's it going?"
+  }
+}
+</code></pre>
+Security Rules
+<pre><code data-trim style="font-size:.85em">
+"secretparty": {
+  "messages": {
+    ".read": "auth != null && data.parent().child('allowed').hasChild(auth.uid)",
+    ".write": "auth != null && data.parent().child('allowed').hasChild(auth.uid)"
+  }
+}
+</code></pre>
+</section>
+
+<section>
+  <h2>Staying Uninfected</h2>
+  <p><img src="img/office-mover.png" alt="Office Mover, a multi-platform demo" height="200"></p>
+  <p>Validation</p>
+</section>
+
+<section>
+  <h2>Staying Uninfected</h2>
+<p>From Office Mover Demo</p>
+<pre><code data-trim>
+{
+  ".write": "newData.val() != null && (auth != null)",
+  ".validate": "newData.hasChildren(['left', 'name', 'rotation', 'top', 'type', 'z-index'])",
+  "left": { ".validate": "newData.isNumber()" },
+  "rotation": { ".validate": "newData.isNumber() && (newData.val() == 0 || newData.val() == 90 || newData.val() == 180 || newData.val() == 270)" },
+  "top": {".validate": "newData.isNumber()" },
+  "type": {".validate": "newData.isString()"},
+  "name": {".validate": "newData.isString()"},
+  "z-index": {".validate": "newData.isNumber()"}
+}
+</code></pre>
 </section>
 
 
 <section>
-  <h2>CBS</h2>
-  <img src="img/cbs-chat.jpg" style="float: right;"/>
-  <ul id="cbs" style="float:left; width:500px;">
-    <li>Built a realtime chat platform for reality TV series <i>Big Brother</i></li>
-    <br/>
-    <li>50k concurrents at peak times, with over 27M chat message posted</li>
-  </ul>
+<h2>Staying Uninfected</h2>
+newData.hasChildren()
+<pre><code data-trim style="padding-top:20px; padding-bottom:20px;">
+".validate": "newData.hasChildren(['left', 
+                                   'name', 
+                                   'rotation', 
+                                   'top', 
+                                   'type', 
+                                   'z-index'])"
+</code></pre>
 </section>
 
 <section>
-  <h2>Roll20</h2>
-
-  <p style="margin-top: 40px;">Online virtual tabletop using<br />Firebase as the backend.</p>
-
-  <div style="text-align: center;"><img src="img/roll20.png" style="width: 600px; border-radius: 10px;"/></div>
+<h2>Staying Uninfected</h2>
+newData.isNumber()
+<pre><code data-trim style="padding-top:20px; padding-bottom:20px;">
+"left": {".validate": "newData.isNumber()"}
+</code></pre>
 </section>
 
 <section>
-  <h2>Reviewable</h2>
-  
-  <p style="margin-top: 40px;">GitHub code reviews backed by Firebase.</p>
-
-  <div style="text-align: center;"><img src="img/reviewable.png" style="width: 800px; border-radius: 10px;"/></div>
-
-  <a href="http://tinyurl.com/ReviewableFiresideChat">http://tinyurl.com/ReviewableFiresideChat</a>
+<h2>Staying Uninfected</h2>
+newData.isString()
+<pre><code data-trim style="padding-top:20px; padding-bottom:20px;">
+"type": {".validate": "newData.isString()"}
+</code></pre>
 </section>
 
-<section class="center">
-  <h2>More Case Studies</h2>
-  <br/>
-  <img style="height: 80px; margin-bottom: -10px;" src="img/twitch.png"/>
-  <p style="font-size: 30px;">Notifies users when streams go live</p>
-
-  <img style="height: 100px; margin-bottom: -10px;;" src="img/warby.png"/>
-  <p style="font-size: 30px;">Pneumatic tubes</p>
-
-  <img style="height: 80px; margin-bottom: -10px;" src="img/cmb.png"/>
-  <p style="font-size: 30px;">Realtime chat</p>
+<section>
+<h2>Staying Uninfected</h2>
+newData.val()
+<pre><code data-trim style="padding-top:20px; padding-bottom:20px;">
+"rotation": {".validate": "newData.isNumber() &&
+                           (newData.val() == 0 || 
+                            newData.val() == 90 || 
+                            newData.val() == 180 || 
+                            newData.val() == 270)"}
+</code></pre>
 </section>
+
+
+<section>
+  <h2>Set Everything On Fire</h2>
+  <p><img src="img/blaze.png" height="200"></p>
+  Blaze Compiler
+</section>
+
+<section>
+  <h2>Set Everything On Fire</h2>
+<br/>
+Installation
+<pre><code data-trim style="padding-top:20px; padding-bottom:20px">
+$ npm install -g blaze_compiler
+</code></pre>
+<br/><br/>
+<a href="https://github.com/firebase/blaze_compiler">github.com/firebase/blaze_compiler</a>
+</section>
+
+<section>
+  <h2>Set Everything On Fire</h2>
+<div class="fragment">
+Functions
+<pre><code data-trim>
+functions:
+  - isLoggedIn(): auth.uid !== null
+</code></pre></div>
+
+<div class="fragment">
+Schema
+<pre><code data-trim>
+schema: {}
+</code></pre>
+</div>
+
+<div class="fragment">
+Access
+<pre><code data-trim>
+access:
+  - location: /
+    read:     true
+    write:    isLoggedIn() 
+</code></pre>
+</div>
+</section>
+
+<section>
+<h2>Set Everything On Fire</h2>
+Compile with Blaze
+<pre><code data-trim style="padding-top:20px; padding-bottom:20px">
+$ blaze rules.yaml
+</code></pre>
+Output: rules.json
+<pre><code data-trim>
+{
+  "rules":{
+    ".write":"((auth.uid!==null))",
+    ".read":"true"
+  }
+}
+</code></pre>
+</section>
+
+<section>
+  <h2>Set Everything On Fire</h2>
+Secret Party Functions
+<pre><code data-trim>
+functions:
+  - isLoggedIn(): auth.uid !== null
+  - invited():    prev.parent().allowed[auth.uid].exists()
+</code></pre>
+</section>
+
+<section>
+  <h2>Set Everything On Fire</h2>
+Secret Party Scehma
+<pre><code data-trim>
+schema: 
+  type: object
+  properties:
+    secretparty: 
+      type: object
+      properties:
+        messages: {}
+        allowed: {}
+</code></pre>
+</section>
+
+<section>
+  <h2>Set Everything On Fire</h2>
+Secret Party Access 
+<pre><code data-trim>
+access:
+  - location: /secretparty/allowed
+    read:     true 
+    write:    true
+  - location: /secretparty/messages
+    write:    isLoggedIn() && invited()
+    read:     isLoggedIn() && invited()
+</code></pre>
+</section>
+
+<section>
+<h2>Set Everything On Fire</h2>
+Secret Party Compiled
+<pre><code data-trim>
+{
+  "rules":{
+    ".write":"false",
+    ".read":"false",
+    "secretparty": {
+      ".write":"false",
+      ".read":"false",
+      "messages": {
+        ".write":"(((!newData.parent().parent().exists()||!(((newData.parent().parent().isString()||newData.parent().parent().isNumber()||newData.parent().parent().isBoolean()))))&&(!newData.parent().exists()||!(((newData.parent().isString()||newData.parent().isNumber()||newData.parent().isBoolean()))))&&data.parent().child('allowed').child(auth.uid).exists()))",
+        ".read":"(data.parent().child('allowed').child(auth.uid).exists())"
+      },
+      "allowed": {
+        ".write":"((((!newData.parent().parent().exists()||!(((newData.parent().parent().isString()||newData.parent().parent().isNumber()||newData.parent().parent().isBoolean()))))&&(!newData.parent().exists()||!(((newData.parent().isString()||newData.parent().isNumber()||newData.parent().isBoolean())))))))",
+        ".read":"true"
+      }
+    }
+  }
+}
+</code></pre>
+</section>
+
+
 
 <section data-markdown>
   <script type="text/template">
-    ## We talked about this stuff
+    ## Today we talked about 
 
-    - What realtime is
-    - Realtime is complex 
-    - How Firebase makes it simple 
-    - Live coding
-    - Real world examples
+    - Firebase Overview
+    - Authentication
+    - Security rules
+    - Validation
+    - Blaze 
   </script>
 </section>
 
@@ -475,10 +717,9 @@ Firebase *ref = [[Firebase alloc] initWithUrl:
 <section>
   <h1>The End</h1>
   <ul>
-    <li>Slides: <a href="https://katfang.com/presos/2015/6470">katfang.com/presos/2015/6470</a>
-    </li>
     <li>Try Firebase: <a href="https://www.firebase.com/tutorial">firebase.com/tutorial</a></li>
-    <li>Cloud Chat: <a href="https://github.com/katfang/live-cloud-chat">github.com/katfang/live-cloud-chat</a></li>
+    <li>Security Docs: <a href="https://www.firebase.com/docs/security">firebase.com/docs/security</a></li>
+    <li>Blaze Compiler: <a href="https://github.com/firebase/blaze_compiler">github.com/firebase/blaze_compiler</a></li>
   </ul>
   <br/><br/>
   Questions anyone?
